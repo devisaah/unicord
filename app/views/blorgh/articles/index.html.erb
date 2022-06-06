@@ -1,0 +1,24 @@
+<h1>Articles</h1>
+<%= link_to "New Article", new_article_path %>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>TEXT</th>
+            <th>CREATED AT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @articles.each do |article| %>
+            <tr>
+                <td><%= article.id %></td>
+                <td><%= article.title %></td>
+                <td><%= article.author.name %></td>
+                <td><%= simple_format(article.text) %></td>
+                <td><%= article.created_at.to_s %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
